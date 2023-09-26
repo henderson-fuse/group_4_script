@@ -1,0 +1,391 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+}
+
+img {
+    width: 100%;
+}
+
+/* ***** heading and nav ***** */
+.heading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: lavender;
+    margin-bottom: 1em;
+    width: 100%;
+}
+
+.heading header {
+    text-align: center;
+}
+
+.heading header p {
+    font-size: 0.8rem;
+    color: rgb(0, 100, 201);
+    margin-bottom: .7em;
+}
+
+nav ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+nav li {
+    list-style: none;
+    margin-bottom: .7em;
+}
+
+nav a {
+    color: burlywood;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: rgb(51, 43, 32);
+}
+
+.active {
+    border-bottom: 1px solid rgb(51, 43, 32);
+    color: rgb(51, 43, 32);
+}
+
+
+/* ***** main content ***** */
+.content {
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and (min-width: 675px) {
+    .container, .content {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .container header {
+        text-align: left;
+    }
+
+    .heading .container {
+        width: 80%;
+        align-items: center;
+        padding: 1.25em 0;
+    }
+
+
+    nav {
+        width: 30%;
+    }
+
+    nav ul{
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    
+}
+
+h2 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1.2rem;
+    color: rgb(121, 103, 5);
+}
+
+.art-main {
+    padding-bottom: .8em;
+    margin-bottom: 1em;
+    border-bottom: 1px solid #7c7c7c;
+}
+
+.art-second {
+    display: flex;
+    flex-direction: column;
+}
+
+.art-second img {
+    margin-top: 1em;
+}
+
+.art-second h3{
+    font-size: 1rem;
+    margin: 1em 0;
+    color: rgb(201, 169, 41);
+}
+
+.art-second p {
+    margin-bottom: 1.2em;
+}
+
+.extra {
+    font-size: .8rem;
+    color: rgb(167, 98, 9);
+    padding-bottom: 1em;
+    border-bottom: 1px solid #7c7c7c;
+}
+
+/* ***** frequently asked questions ***** */
+.questions {
+    width: 100%;
+}
+
+.section-center {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.title {
+    margin: 1em 0;
+}
+
+.title h2 {
+    font-family: sans-serif;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.question {
+    background: #7c7c7c;
+    border-radius: .5rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2em;
+    padding: .5em;
+}
+.question-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1rem;
+}
+
+.question-btn {
+    font-size: 1.5rem;
+    background: transparent;
+    border-color: transparent;
+    cursor: pointer;
+}
+
+.question-text {
+    display: none;
+}
+
+.question-text p {
+    border-top: 1px solid #000;
+}
+
+.show-text .question-text {
+    display: block;
+}
+.minus-icon {
+    display: none;
+}
+.show-text .minus-icon {
+    display: inline;
+}
+.show-text .plus-icon {
+    display: none;
+}
+
+@media screen and (min-width:675px) {
+    .content .main-content {
+        width: 70%;
+        margin-top: 3em;
+    }
+
+    .content .sidebar {
+        width: 25%;
+        margin-top: 3em;
+    }
+
+    .art-main {
+        padding-bottom: 1.5em;
+    }
+
+    .art-main img {
+        width: 50%;
+    }
+
+    .art-main h2 {
+        font-size: 1.5rem;
+    }
+
+    .art-second {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-bottom: 2em;
+    }
+
+    .art-second h3 {
+        font-size: 1.2rem;
+    }
+
+    .art-second img {
+        width: 30%;
+    }
+
+    .art-second div {
+        width: 68%;
+    }
+
+    .extra {
+        text-align: center;
+    }
+}
+
+/* ***** chart page ***** */
+#chart-pg-title {
+    font-size: 1rem;
+}
+
+.chart-link {
+    text-decoration: none;
+}
+
+.chart-link:hover {
+    text-decoration: underline;
+}
+
+.chart-link h3:hover {
+    color: rgb(51, 43, 32);
+}
+
+@media screen and (min-width:675px) {
+    #chart-pg-title {
+        font-size: 1.5rem;
+    }
+}
+
+/* ***** about page ***** */
+#about-title {
+    font-size: 1rem;
+    margin-bottom: 1em;
+}
+
+.about-art img {
+    margin-bottom: 1em;
+}
+
+.about-art p {
+    text-align: justify;
+}
+
+.special {
+    border-bottom: 1px solid #7c7c7c;
+    margin-bottom: 1em;
+}
+
+.about-article h2{
+    margin-bottom: 1em;
+}
+
+@media screen and (min-width: 675px) {
+    #about-title {
+        font-size: 1.5rem;
+    }
+
+    .about-article {
+        flex-direction: column;
+    }
+
+    .extra {
+        border-bottom: 0;
+    }
+}
+
+/* ***** sidebar ***** */
+
+aside {
+    margin-bottom: 2em;
+}
+
+.side-container {
+    border: 15px solid #c4c4c4;
+    padding: 0.1em .6em;
+}
+
+.side-container h2 {
+    font-size: 1.1rem;
+    margin: 1em 0;
+}
+
+.side-container article {
+    background-color: rgb(255, 255, 255);
+    padding: .7em;
+    border-bottom: 1px solid #7c7c7c;
+}
+
+.side-container a {
+    text-decoration: none;
+    color: dodgerblue;
+}
+
+.side-container a:hover {
+    color: navy;
+}
+
+.side-container article:last-child {
+    border: 0;
+}
+
+.side-container h3 {
+    font-size: 1rem;
+    padding: 0.8em 0;
+}
+
+/* ***** the chart ***** */
+.info {
+    margin: 1em 0;
+    padding: 1em 0;
+}
+
+.info h2, .chart-container {
+    margin-bottom: 1em;
+}
+
+
+
+@media screen and (min-width: 675px) {
+    #chart-main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .main-content .chart-container {
+        width: 50%;
+    }
+
+    .info {
+        margin-top: 0;
+        padding-top: 0;
+    }
+
+    .info h2 {
+        font-size: 1.5rem;
+    }
+}
+
+
+/* ***** footer ***** */
+
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2em 0;
+    background-color: bisque;
+}

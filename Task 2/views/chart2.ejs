@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("./partials/head") %>
+<body>
+
+    <%- include("./partials/nav") %>
+    <div class="container" id="main-container">
+        
+        <section class="content">
+            <main class="main-content" id="chart-main">
+                <div class="info">
+                    <h2>Chart from example org</h2>
+                    <p>This chart was requested from example org. They deal with something we do not know. We respect their privacy so we did not ask.</p>
+                    <p>Honestly speaking, <strong>we don't care!</strong> We just want the money. So we created what we thought was best according to us, not them.</p>
+                </div>
+                <div class="chart-container">
+                    <canvas id="myChart" width="45" height="45"></canvas>
+                </div>
+                
+                <article class="art-second">
+                    <div>
+                        <h3>Join Us Today!</h3>
+                        <p>Millions of users and thousands of companies use Chartify to create exquisite charts for their businesses, or simply for fun.</p>
+                    </div>
+                    <img src="/images/Control-Charts.jpg" alt="a chart here">
+                </article>
+                
+                
+                
+            </main>
+            <%- include("./partials/aside") %>
+        </section>
+        
+    </div>
+    <%- include("./partials/footer") %>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.1.1/chart.min.js"></script>
+    <!-- <script src="/js/data2.js"></script> -->
+    <script>
+        var xAxis = [
+          "<%= data[0].team %>",
+          "<%= data[1].team %>",
+          "<%= data[2].team %>",
+          "<%= data[3].team %>",
+          "<%= data[4].team %>",
+          "<%= data[5].team %>",
+        ];
+        var yAxis = [
+          "<%= data[0].score %>",
+          "<%= data[1].score %>",
+          "<%= data[2].score %>",
+          "<%= data[3].score %>",
+          "<%= data[4].score %>",
+          "<%= data[5].score %>",
+        ];
+  
+  
+        new Chart("myChart", {
+          type: "line",
+          data: {
+            labels: xAxis,
+            datasets: [
+              {
+                label: "Game Scores",
+                backgroundColor: "brown",
+                data: yAxis,
+              },
+            ],
+          },
+        });
+      </script>
+</body>
+</html>
