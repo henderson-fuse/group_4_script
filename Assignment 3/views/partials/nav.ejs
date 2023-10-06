@@ -1,0 +1,16 @@
+<header class="logo">
+    <i class="fa fa-bars" id="nav-display"></i>
+    <i class="fa fa-gears"></i>
+    <h1>workflow</h1>
+</header>
+
+<nav class="main-nav" id="js-nav">
+    <ul>
+        <li><a href="/" class="<%= active === 'Dashboard' ? 'active' : ''%>"><i class="fa fa-house"></i>Dashboard</a></li>
+        <li><img src="" alt=""><a href="/list" class="<%= active === 'Add' ? 'active' : ''%>"><i class="fa fa-users"></i>View products</a></li>
+        <li><img src="" alt=""><a role="link" class="<%= active === 'Edit' ? 'active' : ''%>" id="update-link" aria-disabled="true"><i class="fa fa-users"></i>Update product</a></li>
+        <li><img src="" alt=""><a role="link" class="<%= active === 'Delete' ? 'active' : ''%>" id="update-link" aria-disabled="true"><i class="fa fa-users"></i>Delete product</a></li>
+        <li><img src="" alt=""><a href="/saleslist" class="<%= active === 'Sales' ? 'active' : ''%>"><i class="fa fa-file-text"></i>Sales</a></li>
+        <li><img src="" alt=""><a href="/reportslist" class="<%= active === 'Reports' ? 'active' : ''%>"><i class="fa fa-bar-chart"></i>Reports</a></li>
+    </ul>
+</nav>

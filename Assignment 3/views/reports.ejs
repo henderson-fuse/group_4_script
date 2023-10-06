@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("./partials/head") %>
+<body>
+    <div class="body-container">
+        <section class="left-content">
+            <div class="container">
+                <%- include("./partials/nav") %>
+            </div>
+        </section>
+        <section class="right-content">
+            <div class="header-container">
+                <%- include("./partials/header") %>
+            </div>
+            <div class="main-container">
+                <main class="main-content">
+                    <h2><%= title %></h2>
+                    <div class="dash-content" id="charts">
+                        
+                        <div class="chart-container">
+                            <h1>Total Products</h1>
+                            <canvas id="myChart" width="45" height="45"></canvas>
+                        </div>
+                        <div class="chart-container">
+                            <h1>Total Sales</h1>
+                            <canvas id="myChart2" width="45" height="45"></canvas>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </section>
+    </div>
+    <script src="/js/resp.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.1.1/chart.min.js"></script>
+    <script>
+        let xAxis = [];
+        let yAxis = [];
+        let yAxis2 = [];
+        let backgroundColors = [];
+        let dynamicColor
+        
+        "<% for (let i = 0; i < sales.length; i++){ %>"
+            xAxis.push("<%= sales[i].product %>");
+            yAxis.push("<%= sales[i].sold %>");
+            yAxis2.push("<%= sales[i].price %>");
+            dynamicColor = getRandomColor();
+            backgroundColors.push(dynamicColor);
+        "<% } %>"
+        console.log(xAxis);
+
+        new Chart("myChart", {
+            type: "bar",
+            data: {
+                labels: xAxis,
+                datasets: [
+                        {
+                            label: "Products sold",
+                            backgroundColor: "dodgerblue",
+                            data: yAxis,
+                        },
+                    ],
+            },
+        });
+        new Chart("myChart2", {
+            type: "pie",
+            data: {
+                labels: xAxis,
+                datasets: [
+                        {
+                            label: "Revenue earned",
+                            backgroundColor: backgroundColors,
+                            data: yAxis2,
+                        },
+                    ],
+            },
+        });
+        function getRandomColor() {
+        let letters = "0123456789ABCDEF";
+        let color = "#";
+        for (let i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
+    </script>
+</body>
+</html>

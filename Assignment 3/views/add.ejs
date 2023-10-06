@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("./partials/head") %>
+<body>
+    <div class="body-container">
+        <section class="left-content">
+            <div class="container">
+                <%- include("./partials/nav") %>
+            </div>
+        </section>
+        <section class="right-content">
+            <div class="header-container">
+                <%- include("./partials/header") %>
+            </div>
+            <div class="main-container">
+                <main class="main-content" id="main-product">
+                    <h2 id="main-title"><%= title %></h2>
+                    <div class="content" id="product-form">
+                        <div class="title-bar">
+                            <h1>Add product</h1>
+                            <button id="close-form"><i class="fa fa-close"></i></button>
+                        </div>
+                        
+                        <form action="/post/add_product" method="POST" class="product_add">
+                            <input type="hidden" id="product_id" name="product_id" size="20" /><br />
+                            <p>Product Name</p>
+                            <input type="text" id="productname" name="productname" size="20" /><br />
+                            <p>product price</p>
+                            <input type="text" id="productprice" name="productprice" size="20" /><br />
+                            <p>product quantity</p>
+                            <input type="text" id="productquantity" name="productquantity" size="20" /><br />
+                            <p>product description</p>
+                            <textarea id="productdescription" name="productdescription" cols="10" rows="5"></textarea>
+                            <button type="submit">submit</button>
+                        </form>
+                    </div>
+                    <div class="recentsales" id="products">
+                        <div class="cardHeader">
+                            <h2>workflow</h2>
+                            <button class="btn" id="new-product"><i class="fa fa-plus"></i></button>
+                        </div>
+                        <table id="table-pro">
+                            <thead>
+                              <tr>
+                                <!-- <th>Sale ID</th> -->
+                                <th class="mid">Product Name</th>
+                                <th class="mid">Price</th>
+                                <th class="mid">Quantity</th>
+                                <th class="mid">Description</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <% for (let i = 0; i < products.length; i++) { %>
+                                <tr>
+                                  <td><%= products[i].productname%></td>
+                                  <td><%= products[i].productprice %></td>
+                                  <td><%= products[i].productquantity %></td>
+                                  <td><%= products[i].productdescription %></td>
+                                  <td><a href="/edit/<%= products[i].product_id %>"><i class="fa fa-pencil"></i></a></td>
+                                  <td><a href="/delete/<%= products[i].product_id %>"><i class="fa fa-trash"></i></a></td>
+                                </tr>
+                              <% } %>
+                            </tbody>
+                        </table>                              
+                    </div>
+                </main>
+            </div>
+        </section>
+    </div>
+    <script src="/js/resp.js"></script>
+    <script src="/js/forms.js"></script>
+</body>
+</html>

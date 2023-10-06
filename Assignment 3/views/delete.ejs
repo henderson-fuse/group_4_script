@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("./partials/head") %>
+<body>
+    <div class="body-container">
+        <section class="left-content">
+            <div class="container">
+                <%- include("./partials/nav") %>
+            </div>
+        </section>
+        <section class="right-content">
+            <div class="header-container">
+                <%- include("./partials/header") %>
+            </div>
+            <div class="main-container">
+                <main class="main-content">
+                    <div class="details" id="delete">
+                        <h1>Delete Record</h1>
+                        <p>Are you sure you want to delete the following record?</p>
+                        <ul>
+                            <li><strong>Product</strong> <%= pending.productname %></li>
+                            <li><strong>Price</strong> <%= pending.productprice %></li>
+                            <li><strong>Quantity</strong> <%= pending.productquantity %></li>
+                            <li><strong>Description</strong> <%= pending.productdescription %></li>
+                        </ul>
+                        <form action="/delete/<%= pending.product_id %>" method="POST">
+                            <button type="submit">Confirm Delete</button>
+                        </form>
+                        <a href="/">Cancel</a>
+                    </div>
+                </main>
+            </div>
+        </section>
+    </div>
+    <script src="/js/resp.js"></script>
+</body>
+</html>

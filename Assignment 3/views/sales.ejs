@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("./partials/head") %>
+<body>
+    <div class="body-container">
+        <section class="left-content">
+            <div class="container">
+                <%- include("./partials/nav") %>
+            </div>
+        </section>
+        <section class="right-content">
+            <div class="header-container">
+                <%- include("./partials/header") %>
+            </div>
+            <div class="main-container">
+                <main class="main-content">
+                    <h2><%= title %></h2>
+                    <div class="content" id="sales-form">
+                        <div class="title-bar">
+                            <h1>Add product</h1>
+                            <button id="close-form2"><i class="fa fa-close"></i></button>
+                        </div>
+                        
+                        <form action="/add_sale" method="POST" class="product_add">
+                            <input type="hidden" id="product_id" name="product_id" size="20" /><br />
+                            <p>Product Name</p>
+                            <!-- <input type="text" id="productname" name="productname" size="20" /><br /> -->
+                            <select class="options" name="product_name" id="product_name">
+                                <% total.forEach(total => { %>
+                                    <option value="<%= total.product_name %>">
+                                        <%= total.product_name %>
+                                    </option>
+                                <% }); %>
+                            </select>
+                            
+                            <p>product quantity</p>
+                            <input type="text" id="productquantity" name="productquantity" size="20" /><br />
+                            
+                            
+                            <button type="submit" hr>submit</button>
+                        </form>
+                    </div>
+                    <div class="details" id="sales-table">
+                        <div class="recentsales">
+                            <div class="cardHeader">
+                                <h2>workflow</h2>
+                                <button class="btn" id="add-sales"><i class="fa fa-add"></i></button>
+                            </div>
+                            <table>
+                                <thead>
+                                  <tr>
+                                    <!-- <th>Sale ID</th> -->
+                                    <th>Product Name</th>
+                                    <th>Quantity</th>
+                                    <th>Total Price</th>
+                                    
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <% for (let i = 0; i < sales.length; i++) { %>
+                                    <tr>
+                                      <td><%= sales[i].product_name%></td>
+                                      <td><%= sales[i].product_quantity %></td>
+                                      <td><%= sales[i].total_price %></td>
+                                    </tr>
+                                  <% } %>
+                                </tbody>
+                            </table>                              
+                        </div>
+                </main>
+            </div>
+        </section>
+    </div>
+    <script src="/js/resp.js"></script>
+    <script src="/js/sales.js"></script>
+</body>
+</html>

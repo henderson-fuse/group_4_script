@@ -1,0 +1,578 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ***** logo and nav ***** */
+.left-content {
+    width: 64%;
+    position: relative;
+    margin-bottom: 0.8em;
+    max-width: 12.5rem;
+    min-width: 10rem;
+}
+
+.logo .fa-bars, .fa-x {
+    margin: 0 1em;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    height: 5vh;
+}
+
+nav {
+    display: none;
+    position: absolute;
+    width: 100%;
+    background-color: rgb(38, 0, 128);
+    height: 95vh;
+    max-width: 12.5rem;
+    min-width: 10rem;
+    padding-top: 1em;
+    z-index: 1;
+    left: -15.625px;
+    transition: left 0.3s ease-in !important;
+}
+
+nav ul {
+    display: flex;
+    flex-direction: column;
+}
+
+nav li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.7em;
+    list-style: none;
+    padding-left: .5em;
+}
+
+nav li i{
+    width: 25%;
+}
+
+nav li a {
+    width: 100%;
+    background-color: transparent;
+    color: lightgray;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+
+.active {
+    background-color: rgb(0, 156, 218);
+}
+
+/* ***** to dynamically display nav ***** */
+
+.nav-visible {
+    display: block;
+    left: 0;
+}
+
+
+
+@media screen and (min-width: 675px) {
+    .body-container {
+        display: flex;
+        height: 100vh;
+    }
+
+    .left-content {
+        width: 20%;
+        height: 100%;
+        max-width: none;
+    }
+
+    .left-content .container {
+        height: 100%;
+        position: static;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .logo {
+        height: 13vh;
+        background-color: rgb(38, 0, 128);
+        padding-left: 1em;
+        color: lightgray;
+        font-weight: 700;
+    }
+
+    .logo .fa-gears{
+        margin: 0 0.4em;
+    }
+
+    .logo .fa-bars {
+        display: none;
+    }
+
+    nav {
+        display: block;
+        position: static;
+        height: 87vh;
+        max-width: none;
+        width: 100%;
+    }
+
+    nav li {
+        width: 100%;
+    }
+
+    nav li i {
+        width: 15%;
+        margin: 0 0.5em;
+    }
+
+    nav a {
+        font-size: 1.2rem;
+        width: 95% !important;
+        height: 5vh;
+        border-radius: 0.5rem;
+    }
+
+    nav a:hover {
+        background-color: dodgerblue;
+    }
+}
+
+/* ***** send mail and profile picture ***** */
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 1em;
+    height: 7vh;
+}
+
+.mail-container {
+    position: relative;
+}
+
+.profile-container {
+    display: flex;
+    align-items: center;
+    gap: 0.7em;
+    padding-right: 0.5em;
+}
+
+.profile-container img {
+    width: 1.7rem;
+    border-radius: 50%;
+}
+
+.content {
+    margin: 0 20vw;
+   
+    height: 50vh;
+    padding: 2rem 2rem;
+    color: grey;
+  }
+  input {
+    width: 30vw;
+    height: 2.5rem;
+    background-color: #fff;
+    color: #333;
+    border: 0.125rem solid #ccc;
+    border-radius: 0.3125rem;
+    padding: 0.3125rem;
+  }
+  .content p {
+    margin-bottom: 0.3125rem;
+  }
+  .content a {
+    text-decoration: none;
+  }
+  textarea {
+    width: 30vw;
+    background-color: #fff;
+    color: #333;
+    border: 0.125rem solid #ccc;
+    border-radius: 0.3125rem;
+    padding: 0.3125rem;
+  }
+  button {
+    text-align: center;
+    margin-top: 0.3125rem;
+    font-size: 0.8rem;
+    color: #fff;
+    background-color: rgb(38, 0, 128);
+    border: 0.125rem solid #0c4582;
+    border-radius: 0.3125rem;
+    padding: 0.6rem 1rem;
+  }
+
+
+@media screen and (min-width: 675px) {
+    .right-content {
+        width: 80%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .header-container {
+        height: 13vh;
+        width: 80%;
+    }
+
+    .mail-container {
+        width: 40%;
+    }
+
+    .profile-container {
+        gap: 1em;
+    }
+
+    .profile-container img {
+        width: 2rem;
+    }
+
+}
+
+/* ***** main content ***** */
+.main-container {
+    width: 100%;
+    background-color: #dadada;
+    height: 85vh;
+    position: relative;
+}
+
+main {
+    width: 100%;
+    margin: 0 auto !important;
+    height: 85vh;
+    padding: 1em 0.5em;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+#main-product {
+    position: relative;
+    padding-left: 2rem;
+}
+
+#product-form, #sales-form, #mail, #modify {
+    position: absolute;
+    display: none;
+    padding: 1rem 1rem;
+    border-radius: 1.25rem;
+    height: max-content;
+    margin-top: -2rem;
+    box-shadow:  0 0.4375rem 1.5625rem rgba(0,0,0,1);
+}
+
+#modify {
+    position: static;
+    display: flex;
+    flex-direction: column;
+    width: max-content;
+}
+
+#modify input:last-child {
+    margin-top: 1em;
+}
+
+#modify label {
+    font-weight: 600;
+}
+
+#modify-btn {
+    width: 40%;
+    background-color: rgb(38, 0, 128);
+    color: #fff;
+    border: none;
+    margin: 0 auto;
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+#mail-title {
+    display: flex;
+    justify-content: space-between;
+}
+
+#mail {
+    width: max-content;
+    top: 0;
+    margin: 2rem;
+}
+
+#mail-form {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    width: 100%;
+}
+
+#mail-form input {
+    margin-bottom: 2rem;   
+}
+
+#mail-form input:last-child {
+    margin-top: 1rem;
+}
+
+#send-mail {
+    width: 30%;
+    margin: 0 auto;
+    background-color: rgb(38, 0, 128);
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.2rem;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+}
+
+#send-mail:hover, #mail-btn:hover {
+    background-color: #fff;
+    color: rgb(38, 0, 128);
+    cursor: pointer;
+}
+
+.options {
+    width: 100%;
+    padding: 10px;
+}
+
+.title-bar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.title-bar h1 {
+    color: #000;
+}
+
+#close-form:hover {
+    cursor: pointer;
+}
+
+#sales-table {
+    margin-top: 0.1rem;
+}
+/* **** dynamically hide/unhide form **** */
+
+.visible-form {
+    display: block !important;
+    z-index: 1;
+    background-color: #fff;
+}
+
+/* **** dynamically hide/unhide table **** */
+
+.products-gone {
+    opacity: 0.2;
+}
+
+#products {
+    background-color: #fff;
+    width: 70%;
+    padding: 1.25rem;
+    border-radius: 1.25rem;
+}
+
+main h2 {
+    margin-bottom: 0.4em;
+}
+
+.dash-content {
+    border-radius: 0.5rem;
+    height: 50%;
+    padding: 0.3em 0.2em;
+}
+
+/***carbox***/
+.cardBox
+{
+   position: relative;
+   width:100%;
+   padding:1.25rem;
+   display: grid ;
+   grid-template-columns: repeat(4,1fr);
+   grid-gap:1.875rem;
+}
+
+.card-link {
+    color: #000;
+    text-decoration: none !important;
+}
+
+.card-link:visited {
+    color: #000;
+}
+
+.cardBox .card
+{
+    position: relative;
+    background: white;
+    padding: 1.875rem;
+    border-radius: 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    cursor:pointer;
+    box-shadow: 0 0.4375rem 1.5625rem rgba(0,0,0,0.08);
+     
+}
+
+.cardBox .card .numbers, #card-number
+{
+    position: relative;
+    font-weight: 500;
+    font-size: 2.5em;
+    color: rgb(38, 0, 128);
+}
+.cardBox .card .cardName, #card-name
+{
+    color: black;
+    font-size: 1.1em;
+    text-decoration: none !important;
+}  
+
+.cardBox a {
+    text-decoration: none !important;
+}
+
+
+
+.cardBox .card:hover{
+    background-color:rgb(38, 0, 128);
+}
+
+#earn:hover {
+    cursor: default;
+    background-color: #fff;
+}
+
+.cardBox .card:hover .numbers,
+.cardBox .card:hover .cardName,
+.cardBox .card:hover .iconBx
+{
+     color: white;
+}
+.details
+{
+    position: relative;
+    width:100%;
+    padding: 1.25rem;
+    display: grid;
+    grid-template-columns: 2f 1fr;
+    grid-gap:1.875rem;
+    margin-top:-2.5rem;
+}
+
+main a:visited {
+    color: blue;
+}
+
+#update {
+    position: absolute;
+    top: 0;
+    margin: auto 0;
+    height: 100%;
+    width: 80%;
+}
+
+#update-link:hover {
+    background-color: rgb(38, 0, 128);
+}
+
+#table-pro {
+    width: 100%;
+}
+
+#table-pro tr th {
+    text-align: left;
+}
+
+#table-pro tbody tr td {
+    height: 1.8rem !important;
+}
+
+.details .recentsales
+{
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    padding: 1.25rem;
+    box-shadow:0 0.4375rem  1.5625rem rgba(0,0,0,0.08);
+    border-radius: 1.25rem;
+} 
+
+.cardHeader
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start  ;
+    height: 50%;
+}
+
+.cardHeader h2{
+    font-weight: 600;
+    color: rgb(38, 0, 128);
+}
+
+.cardBox .cardBx
+{
+  font-size: 3.5em;
+  color:black ;
+}
+.details .table
+{
+    width:100%;
+    border-collapse: collapse;
+    margin-top: 0.225rem;
+}
+.details table thead td{
+    font-weight:600 ;
+}
+.details .recentsales table tr
+{
+   color: black;
+   border-bottom:0.0625rem solid rgba(0,0,0,0.01) ;
+   text-align: center;
+}
+
+.btn{
+    position: relative;
+    padding: 5px 10px;
+    background: rgb(38, 0, 128);
+    text-decoration: none;
+    color: white; 
+    border-radius: 6px;
+}
+
+.btn:hover {
+    cursor: pointer;
+}
+
+.btn:visited {
+    color: #fff;
+}
+
+.chart-container {
+    width: 20rem;
+}
+
+#charts {
+    display: flex;
+    justify-content: space-between;
+}
+
+@media screen and (min-width: 675px) {
+    main h2 {
+        font-size: 1.7rem;
+    }
+
+    .dash-content {
+        padding: 0.5em 1em;
+    }
+}

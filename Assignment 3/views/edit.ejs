@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("./partials/head") %>
+<body>
+    <div class="body-container">
+        <section class="left-content">
+            <div class="container">
+                <%- include("./partials/nav") %>
+            </div>
+        </section>
+        <section class="right-content">
+            <div class="header-container">
+                <%- include("./partials/header") %>
+            </div>
+            <div class="main-container">
+                <main class="main-content">
+                    <div class="details" id="update">
+                        <h1>Update Product</h1>
+                        <form action="/update/<%= product[0].product_id %>" method="POST" id="modify">
+                            <input type="hidden" name="product_id" value="<%= product[0].product_id %>">
+                            <label for="productname">Product Name</label>
+                            <input type="text" name="productname" id="productname" value="<%= product[0].productname %>"><br>
+                            <label for="productprice">Price</label>
+                            <input type="number" name="productprice" id="productprice" value="<%= product[0].productprice %>"><br>
+                            <label for="productquantity">Quantity</label>
+                            <input type="number" name="productquantity" id="productquantity" value="<%= product[0].productquantity %>"><br>
+                            <label for="productdescription">Description</label>
+                            <textarea id="productdescription" name="productdescription" cols="10" rows="5"><%= product[0].productdescription %>"></textarea>
+                            <input type="submit" value="Update" id="modify-btn">
+                        </form>
+                    </div>
+                </main>
+            </div>
+        </section>
+    </div>
+    <script src="/js/resp.js"></script>
+</body>
+</html>

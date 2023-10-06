@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("./partials/head") %>
+<body>
+    <div class="body-container">
+        <section class="left-content">
+            <div class="container">
+                <%- include("./partials/nav") %>
+            </div>
+        </section>
+        <section class="right-content">
+            <div class="header-container">
+                <div class="mail-container">
+                    <button id="mail-btn"><i class="fa fa-email"></i>Send Mail</button>
+                </div>
+                <div class="profile-container">
+                    <i class="fa fa-bell"></i>
+                    <img src="/images/blank.png" alt="">
+                </div>
+            </div>
+            <div class="main-container">
+                <main class="main-content" id="only-main">
+                    <h2><%= title %></h2>
+                    <div class="dash-content" id="dash">
+                        <div class="cardBox">
+                            <a href="/list" class="card-links"><div class="card">
+                                <div>
+                                 <div class="numbers"><%= productCount %></div>
+                                 <div class="cardName">products</div>
+    
+                                </div>
+                                <div class="iconBx">
+                                    <i class="fab fa-product-hunt"></i>
+                                </div>
+                            </div></a>
+                            <a href="/saleslist" class="card-links"><div class="card">
+                                <div>
+                                <div class="numbers"><%= saleCount %></div>
+                                <div class="cardName">sales</div>
+
+                                </div>
+                                <div class="iconBx">
+                                    <i class="fa fa-bookmark"></i>
+                                </div>
+                           </div></a>
+                            <div class="card" id="earn">
+                                <div>
+                                <div id="card-number">MK<%= totalSales %></div>
+                                <div id="card-name">Earnings</div>
+                                </div>
+                                <div id="card-icon">
+                                    <i class="fa fa-balance-scale" ></i>
+                                </div>
+                           </div>
+                        </div>
+                        <!--order details list-->
+                    </div>
+                    <div class="details" id="sale-product">
+                        <div class="recentsales">
+                            <div class="cardHeader">
+                                <h2>Recent Sales</h2>
+                                <a href="/saleslist" class="btn" >view All</a>
+                            </div>
+                            <table>
+                                <thead>
+                                  <tr>
+                                    <!-- <th>Sale ID</th> -->
+                                    <th>Product Name</th>
+                                    <th>Quantity</th>
+                                    <th>Total Price</th>
+                                    
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <% if (salesData.length > 0) {
+                                        for (let i = 0; i < salesData.length; i++) { %>
+                                    <tr>
+                                      <td><%= salesData[i].product_name%></td>
+                                      <td><%= salesData[i].product_quantity %></td>
+                                      <td><%= salesData[i].total_price %></td>
+                                    </tr>
+                                  <% } 
+                                } else { %>
+                                    <tr>
+                                        <td colspan="3" style="font-weight: 600;">No sales made</td>
+                                    </tr>
+                                <% } %>
+                                </tbody>
+                            </table>                              
+                        </div>
+
+                        <div class="recentsales">
+                            <div class="cardHeader">
+                                <h2>Recent Products</h2>
+                                <a href="/list" class="btn" >view All</a>
+                            </div>
+                            <table>
+                                <thead>
+                                  <tr>
+                                    <!-- <th>Sale ID</th> -->
+                                    <th>Product Name</th>
+                                    <th>Price</th>
+                                    <th>Quantity</th>
+                                    
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <% if (products.length > 0) {
+                                        for (let i = 0; i < products.length; i++) { %>
+                                    <tr>
+                                      <td><%= products[i].productname%></td>
+                                      <td><%= products[i].productprice %></td>
+                                      <td><%= products[i].productquantity %></td>
+                                      <td><a href="/edit/<%= products[i].product_id %>"><i class="fa fa-pencil"></i></a></td>
+                                      <td><a href="/delete/<%= products[i].product_id %>"><i class="fa fa-trash"></i></a></td>
+                                    </tr>
+                                  <% }
+                                 } else { %>
+                                    <tr>
+                                        <td colspan="3" style="font-weight: 600;">No sales made</td>
+                                    </tr> 
+                                <%
+                                 } %>
+                                    
+                                </tbody>
+                            </table>                              
+                        </div>
+                    </div>
+                    <div class="details" id="mail">
+                        <div id="mail-title">
+                            <h1>Send Mail</h1>
+                            <button class="btn" id="close-mail"><i class="fa fa-close"></i></button>
+                        </div>
+                        <form action="/email" method="POST" id="mail-form">
+                            <label for="recepient">Recepient</label>
+                            <input type="email" name="recepient" id="recepient">
+                            <label for="subject">Subject</label>
+                            <input type="text" name="subject" id="subject">
+                            <label for="body">Body</label>
+                            <textarea id="body" name="body" cols="10" rows="5"></textarea>
+                            <input id="send-mail" type="submit" value="Send" >
+                        </form>
+                    </div>
+                    
+                </main>
+            </div>
+        </section>
+    </div>
+    <script src="/js/resp.js"></script>
+    <script src="/js/mail.js"></script>
+</body>
+</html>
